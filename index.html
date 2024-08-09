@@ -15,17 +15,19 @@
         <div class="content-container">
             <div class="btn-container">
                 <label for="penColor">Pen Color</label>
-                <input type="color" id="penColor" name="favcolor" value="#000000">  
-                <input type="checkbox" id="eraser">
-                <label for="eraser">Eraser</label>
-                <input type="checkbox" id="rainbow">
+                <input type="color" id="penColor" name="favcolor" value="#B4B4F6">  
+                <input type="radio" id="normal" name="selector" checked="checked">
+                <label for="normal">Normal Mode</label>
+                <input type="radio" id="rainbow" name="selector">
                 <label for="rainbow">Rainbow Mode</label>
-                <input type="checkbox" id="shade">
+                <input type="radio" id="shade" name="selector">
                 <label for="shade">Shading Mode</label>
+                <input type="radio" id="eraser" name="selector">
+                <label for="eraser">Eraser</label>
                 <button type="button" id="clear">Clear</button>
                 <input type="range" min="16" max="100" value="32" class="slider" id="myRange">
             </div>
-            <div class="grid-container">
+            <div class="canvas">
                 
             </div>
         </div>

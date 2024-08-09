@@ -15,7 +15,7 @@ body {
     display: flex;
     flex-direction: column;
 }
-.grid-container {
+.canvas {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -26,51 +26,16 @@ body {
     max-height: 90vw;
     max-width: 90vw;
 }
-.sub-grid {
-    
-}
-/* #eraser {
+
+#normal, #eraser, #rainbow, #shade {
     appearance: none;
 }
-#eraser + label {
-    
+#normal + label, #eraser + label, #rainbow + label, #shade + label {
     height: 30px;
     width: 65px;
     background-color: antiquewhite;
 }
-#eraser:checked + label {
-    
-    height: 30px;
-    width: 65px;
-    background-color: darkgoldenrod;
-} */
-#rainbow {
-    appearance: none;
-}
-#rainbow + label {
-    
-    height: 30px;
-    width: 65px;
-    background-color: antiquewhite;
-}
-#rainbow:checked + label {
-    
-    height: 30px;
-    width: 65px;
+#normal:checked + label, #eraser:checked + label, #rainbow:checked + label, #shade:checked + label {
     background-color: darkgoldenrod;
 }
-#shade {
-    appearance: none;
-}
-#shade + label {
-    
-    height: 30px;
-    width: 65px;
-    background-color: antiquewhite;
-}
-#shade:checked + label {
-    
-    height: 30px;
-    width: 65px;
-    background-color: darkgoldenrod;
-}
+

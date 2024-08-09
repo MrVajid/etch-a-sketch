@@ -1,79 +1,68 @@
 'use strict'
-const size = document.querySelector("#myRange");
+const canvas = document.querySelector(".canvas");
+const canvasDivisions = document.querySelector("#myRange");
 const penColor = document.querySelector("#penColor");
-// size.oninput = () => console.log(size.value);
-const gc = document.querySelector(".grid-container");
-
-window.onload = () => {
-    console.log(size.value);
-    
-    gridMaker(size.value, gc);
-};
-
-size.addEventListener("change", () => {
-    console.log(size.value);
-    
-    gridMaker(size.value, gc);
-});
-
-function gridMaker(size, gc){
-    const subGrid = document.createElement("div");
-    let height = gc.offsetHeight;
-    let h = (height/size) + "px";
-    subGrid.style.height= h ;
-    subGrid.style.width = h ;
-    subGrid.style.backgroundColor = `aliceblue` ;
-    // subGrid.style.borderStyle = `solid`;
-    // subGrid.style.borderWidth = `thin`;
-    // subGrid.style.borderColor = `black`;
-    gc.replaceChildren();
-
-    for(let i = 0; i < (size*size); i++){
-        gc.appendChild(subGrid.cloneNode(true));
-    }
-    //gc.appendChild(subGrid);
-}
+const normal = document.querySelector("#normal");
 const eraser = document.querySelector("#eraser");
 const rainbow = document.querySelector("#rainbow");
 const shade = document.querySelector("#shade");
+const clear = document.querySelector("#clear");
+
+const canvasElement = document.createElement("div");
+
 let isMouseDown = 0;
 window.onmousedown = () => isMouseDown++;
 window.onmouseup = () => isMouseDown--;
-gc.addEventListener("mouseover", (e) => {
+
+function canvasDivider(canvasDivisions, canvas){
+    let canvasSide = canvas.offsetHeight;
+    let canvasElementSide = (canvasSide/canvasDivisions) + "px";
+    canvasElement.style.height= canvasElementSide ;
+    canvasElement.style.width = canvasElementSide ;
+    canvasElement.style.backgroundColor = `#FAF9F6` ;
+    
+    canvas.replaceChildren();
+    for(let i = 0; i < (canvasDivisions ** 2); i++){
+        canvas.appendChild(canvasElement.cloneNode(true));
+    }
+}
+
+window.onload = () => {
+    canvasDivider(canvasDivisions.value, canvas);
+};
+
+canvasDivisions.addEventListener("change", () => { 
+    canvasDivider(canvasDivisions.value, canvas);
+});
+
+function canvasElementUpdater(canvasElement) {
+    if(eraser.checked){
+        canvasElement.style.backgroundColor = `#FAF9F6`;}
+    else if(rainbow.checked){
+        canvasElement.style.backgroundColor = `rgb(${Math.floor(Math.random()*256)},
+                                                   ${Math.floor(Math.random()*256)},
+                                                   ${Math.floor(Math.random()*256)})`;
+    }
+    else if(shade.checked){
+        canvasElement.style.backgroundColor = `color-mix(in srgb,${canvasElement.style.backgroundColor},
+                                                                 ${penColor.value} 20%)`;
+    }
+    else if(normal.checked){
+        canvasElement.style.backgroundColor = penColor.value;
+    }
+}
+
+canvas.addEventListener("mouseover", (e) => {
     if(isMouseDown){
-        let targetDiv = e.target;
-        console.log(eraser.checked);
-        if(eraser.checked){
-            targetDiv.style.backgroundColor = `aliceblue`;}
-        else if(rainbow.checked){
-            targetDiv.style.backgroundColor = `rgb(${Math.floor(Math.random()*256)},${Math.floor(Math.random()*256)},${Math.floor(Math.random()*256)})`;
-        }
-        else if(shade.checked){
-            targetDiv.style.backgroundColor = `color-mix(in srgb,${targetDiv.style.backgroundColor},${penColor.value} 10%)`;
-        }
-        else{
-            targetDiv.style.backgroundColor = penColor.value;}
+        let targetElement = e.target;
+        canvasElementUpdater(targetElement);
     }
 })
-gc.addEventListener("click", (e) => {
-    
-        let targetDiv = e.target;
-        
-        if(eraser.checked){
-            targetDiv.style.backgroundColor = `aliceblue`;}
-        else if(rainbow.checked){
-            targetDiv.style.backgroundColor = `rgb(${Math.floor(Math.random()*256)},${Math.floor(Math.random()*256)},${Math.floor(Math.random()*256)})`;
-        }
-        else if(shade.checked){
-            targetDiv.style.backgroundColor = `color-mix(in srgb,${targetDiv.style.backgroundColor},${penColor.value} 10%)`;
-        }
-        else{
-            targetDiv.style.backgroundColor = penColor.value;}
-    
+
+canvas.addEventListener("click", (e) => {
+        let targetElement = e.target;
+        canvasElementUpdater(targetElement);
 })
 
-const clear = document.querySelector("#clear");
-clear.addEventListener("click", () => {
-    
-    gridMaker(size.value, gc);
-})
+clear.addEventListener("click", () => canvasDivider(canvasDivisions.value, canvas));
+
