@@ -1,13 +1,13 @@
 'use strict'
 const canvas = document.querySelector(".canvas");
-const canvasDivisions = document.querySelector("#myRange");
+const canvasDivisions = document.querySelector("#slider");
 const penColor = document.querySelector("#penColor");
 const normal = document.querySelector("#normal");
 const eraser = document.querySelector("#eraser");
 const rainbow = document.querySelector("#rainbow");
 const shade = document.querySelector("#shade");
 const clear = document.querySelector("#clear");
-
+const sliderLabel = document.querySelector(".slider-label")
 const canvasElement = document.createElement("div");
 
 let isMouseDown = 0;
@@ -30,6 +30,14 @@ function canvasDivider(canvasDivisions, canvas){
 window.onload = () => {
     canvasDivider(canvasDivisions.value, canvas);
 };
+
+penColor.addEventListener("change", () => {
+    penColor.style.backgroundColor = penColor.value;
+})
+
+canvasDivisions.addEventListener("input", () => { 
+    sliderLabel.textContent = `${canvasDivisions.value} \u{2715} ${canvasDivisions.value}`;
+});
 
 canvasDivisions.addEventListener("change", () => { 
     canvasDivider(canvasDivisions.value, canvas);
@@ -65,4 +73,3 @@ canvas.addEventListener("click", (e) => {
 })
 
 clear.addEventListener("click", () => canvasDivider(canvasDivisions.value, canvas));
-

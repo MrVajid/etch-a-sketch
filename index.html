@@ -5,17 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style.css">
     <script src="script.js" defer></script>
-    <title>Rock Paper Scissors</title>
+    <script src="https://kit.fontawesome.com/24d04404fe.js" crossorigin="anonymous"></script>
+    <title>skETCHER</title>
 </head>
 <body>
-    <div class="container"></div>
-        <div class=header>
-            <h1>Etch a Sketch</h1>
-        </div>
+    <div class="container">
         <div class="content-container">
             <div class="btn-container">
-                <label for="penColor">Pen Color</label>
-                <input type="color" id="penColor" name="favcolor" value="#B4B4F6">  
+                <h1>skETCHER</h1>
+                <label for="penColor"></label>
+                <input type="color" id="penColor" value="#B4B4F6">  
                 <input type="radio" id="normal" name="selector" checked="checked">
                 <label for="normal">Normal Mode</label>
                 <input type="radio" id="rainbow" name="selector">
@@ -25,14 +24,17 @@
                 <input type="radio" id="eraser" name="selector">
                 <label for="eraser">Eraser</label>
                 <button type="button" id="clear">Clear</button>
-                <input type="range" min="16" max="100" value="32" class="slider" id="myRange">
+                <label for="slider" class="slider-label">32 &#10005 32</label>
+                <input type="range" min="16" max="100" value="32" id="slider">
             </div>
             <div class="canvas">
                 
             </div>
         </div>
         <div class="footer">
-            <p>footer</p>
+            <p>Made by MrVajid <a href="https://github.com/mrvajid">
+                <i class="fab fa-github fa-lg" style="color: #74C0FC;"></i></a>
+            </p>     
         </div>
     </div>  
 </body>
