@@ -24,7 +24,7 @@ body {
 
 h1 {
     margin-top: 0;
-    font-size: 3rem;
+    font-size: 2.7rem;
     text-shadow: 2px 2px 7px #CE5937;
 }
 
@@ -34,7 +34,7 @@ h1 {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 16px;
+    gap: 14.5px;
 }
 
 .canvas {
@@ -42,10 +42,10 @@ h1 {
     flex-direction: row;
     flex-wrap: wrap;
     gap: 0;
-    max-height: 90vw;
-    max-width: 90vw;
-    height: 45rem;
-    width: 45rem;
+    max-height: 80vw;
+    max-width: 80vw;
+    height: 40.5rem;
+    width: 40.5rem;
     background-color: blanchedalmond;
     box-shadow: 0px 0px 41px 6px rgba(68,92,117,0.66);
 }
@@ -54,11 +54,11 @@ h1 {
     appearance: none;
 }
 #normal + label, #eraser + label, #rainbow + label, #shade + label, #clear {
-    width: 180px;
-    padding: 12px 0;
+    width: 162px;
+    padding: 10.5px 0;
     border-radius: 12px;
     text-align: center;
-    font-size: larger;
+    font-size: 1.08rem;
     color: #0a0d11;
     background-color: #9faac7;
 }
@@ -71,27 +71,27 @@ h1 {
 }
 
 .slider-label {
-    font-size: larger;
+    font-size: 1.08rem;
 }
 #slider {
     appearance: none;
-    width: 180px;
-    height: 12px;
+    width: 162px;
+    height: 10px;
     border-radius: 8px;  
     background: #5e7fa1;
 }
 #slider::-webkit-slider-thumb {
     appearance: none;
-    width: 25px;
-    height: 25px;
+    width: 22px;
+    height: 22px;
     border-radius: 50%; 
     background: #f0d6bc;
     cursor: pointer;
 }
   
 #clear {
-    font-size: larger;
-    margin: 16px 0;
+    font-size: 1.08rem;
+    margin: 15px 0;
     color: #e8eaf2;
     background-color: #df4c2d;
 }
@@ -100,8 +100,8 @@ h1 {
 }
 
 #penColor {
-	width: 60px;
-    height: 60px;
+	width: 55px;
+    height: 55px;
     border-radius: 50%;
     border: none;
     padding: 0;
@@ -116,7 +116,7 @@ h1 {
 .footer {
     width: 100%;
     margin: 0;
-    font-size: large;
+    font-size: 1rem;
 }
 .footer > p {
     margin-top: 0;
